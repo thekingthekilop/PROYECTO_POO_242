@@ -25,3 +25,4 @@ class Almacen:
 
     def listar_secciones(self):
         return [sec.nombre for sec in self.secciones]
+
