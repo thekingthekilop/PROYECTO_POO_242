@@ -1,28 +1,21 @@
-class Almacen:
-    def __init__(self, id, nombre, direccion):
-        self.id = id
-        self.nombre = nombre
-        self.direccion = direccion
-        self.secciones = []
+class Store:
+    def __init__(self, store_id, name, address):
+        self.store_id = store_id
+        self.name = name
+        self.address = address
+        self.sections = []
 
-    def agregar_seccion(self, seccion):
-        self.secciones.append(seccion)
+    def add_section(self, section):
+        self.sections.append(section)
 
-    def eliminar_seccion(self, id_seccion):
-        self.secciones = [sec for sec in self.secciones if sec.id != id_seccion]
+    def remove_section(self, section_id):
+        self.sections = [sec for sec in self.sections if sec.section_id != section_id]
 
-    def buscar_seccion_por_nombre(self, nombre):
-        for seccion in self.secciones:
-            if seccion.nombre == nombre:
-                return seccion
-        return None
+    def find_section_by_name(self, name):
+        return next((sec for sec in self.sections if sec.name == name), None)
 
-    def buscar_seccion_por_id(self, id_seccion):
-        for seccion in self.secciones:
-            if seccion.id == id_seccion:
-                return seccion
-        return None
+    def find_section_by_id(self, section_id):
+        return next((sec for sec in self.sections if sec.section_id == section_id), None)
 
-    def listar_secciones(self):
-        return [sec.nombre for sec in self.secciones]
-
+    def list_sections(self):
+        return [sec.name for sec in self.sections]

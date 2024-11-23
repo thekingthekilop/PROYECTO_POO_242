@@ -1,33 +1,34 @@
-class Producto:
-    def __init__(self, id, nombre, precio, descripcion):
-        self.id = id
-        self.nombre = nombre
-        self.precio = precio
-        self.descripcion = descripcion
+class Product:
+    def __init__(self, product_id, name, price, description):
+        self.product_id = product_id
+        self.name = name
+        self.price = price
+        self.description = description
 
-    def mostrarDetalles(self):
-        return f"ID: {self.id}, Nombre: {self.nombre}, Precio: {self.precio}, Descripción: {self.descripcion}"
+    def show_details(self):
+        return f"ID: {self.product_id}, Name: {self.name}, Price: ${self.price}, Description: {self.description}"
 
-class Alimento(Producto):
-    def __init__(self, id, nombre, precio, descripcion, fecha_vencimiento):
-        super().__init__(id, nombre, precio, descripcion)
-        self.fecha_vencimiento = fecha_vencimiento
+class Food(Product):
+    def __init__(self, product_id, name, price, description, expiration_date):
+        super().__init__(product_id, name, price, description)
+        self.expiration_date = expiration_date
 
-    def mostrarDetalles(self):
-        return super().mostrarDetalles() + f", Fecha de Vencimiento: {self.fecha_vencimiento}"
+    def show_details(self):
+        return super().show_details() + f", Expiration Date: {self.expiration_date}"
 
-class Tecnologia(Producto):
-    def __init__(self, id, nombre, precio, descripcion, garantia):
-        super().__init__(id, nombre, precio, descripcion)
-        self.garantia = garantia
+class Technology(Product):
+    def __init__(self, product_id, name, price, description, warranty):
+        super().__init__(product_id, name, price, description)
+        self.warranty = warranty
 
-    def mostrarDetalles(self):
-        return super().mostrarDetalles() + f", Garantía: {self.garantia} años"
+    def show_details(self):
+        return super().show_details() + f", Warranty: {self.warranty} years"
 
-class Ropa(Producto):
-    def __init__(self, id, nombre, precio, descripcion, talla):
-        super().__init__(id, nombre, precio, descripcion)
-        self.talla = talla
+class Clothing(Product):
+    def __init__(self, product_id, name, price, description, size):
+        super().__init__(product_id, name, price, description)
+        self.size = size
 
-    def mostrarDetalles(self):
-        return super().mostrarDetalles() + f", Talla: {self.talla}"
+    def show_details(self):
+        return super().show_details() + f", Size: {self.size}"
+        

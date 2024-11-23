@@ -1,27 +1,23 @@
-class Seccion:
-    def __init__(self, id, nombre):
-        self.id = id
-        self.nombre = nombre
-        self.productos = []
+class Section:
+    def __init__(self, section_id, name):
+        self.section_id = section_id
+        self.name = name
+        self.products = []
 
-    def agregar_producto(self, producto):
-        self.productos.append(producto)
+    def add_product(self, product):
+        self.products.append(product)
 
-    def eliminar_producto(self, id_producto):
-        self.productos = [prod for prod in self.productos if prod.id != id_producto]
+    def remove_product(self, product_id):
+        self.products = [prod for prod in self.products if prod.product_id != product_id]
 
-    def buscar_producto_por_nombre(self, nombre):
-        for producto in self.productos:
-            if producto.nombre == nombre:
-                return producto
-        return None
+    def find_product_by_name(self, name):
+        return next((prod for prod in self.products if prod.name == name), None)
 
-    def buscar_producto_por_id(self, id_producto):
-        for producto in self.productos:
-            if producto.id == id_producto:
-                return producto
-        return None
+    def find_product_by_id(self, product_id):
+        return next((prod for prod in self.products if prod.product_id == product_id), None)
 
-    def listar_productos(self):
-        return [prod.mostrarDetalles() for prod in self.productos]
-        
+    def list_products(self):
+        return [prod.show_details() for prod in self.products]
+
+    def sort_products_by_expiration(self):
+        self.products.sort(key=lambda p: getattr(p, "expiration_date", None))
